@@ -19,13 +19,13 @@
 
 
 ## 截图
-![map](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/main/Screenshots/1.png)
+![map](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/1.png)
 
-![radio](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/main/Screenshots/2.png)
+![radio](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/2.png)
 
-![repair](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/main/Screenshots/3.png)
+![repair](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/3.png)
 
-![fight](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/main/Screenshots/4.png)
+![fight](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/4.png)
 
 - There may be some of the things that are translated but not shown.
 - 可能存在部分汉化内容未展示于截图中。
