@@ -38,8 +38,12 @@
    > 5. 方正像素12（主菜单名言《自然即罗马》）
    > 6. 华文中宋（诏书）
 
-
 ## 截图
+
+![Main menu](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/6.png)
+
+![New game](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/7.png)
+
 ![map](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/1.png)
 
 ![radio](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/2.png)
