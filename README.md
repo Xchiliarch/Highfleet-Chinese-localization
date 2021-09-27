@@ -2,7 +2,7 @@
 # 非官方的Highfleet部分汉化
 
 ## 使用方法
-1. 克隆该repo到你的电脑上或从release[下载最新版本的发行版](https://github.com/Xchiliarch/Highfleet-Chinese-localization/releases)
+1. 克隆该repo到你的电脑上或从release[下载最新版本的发行版](https://github.com/Xchiliarch/Highfleet-Chinese-localization/releases/download/v1.1/Tex.zip)
 
 2. 打开游戏目录，其通常位于你存放该游戏的盘。例如
    F:\SteamLibrary\steamapps\common\HighFleet\Media\Tex
