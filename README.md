@@ -1,8 +1,16 @@
-# This is an unofficial Highfleet Chinese localization project!
+
+
 # 非官方的Highfleet部分汉化
 
-## 使用方法
-1. 克隆该repo到你的电脑上或从release[下载最新版本的发行版](https://github.com/Xchiliarch/Highfleet-Chinese-localization/releases/download/v1.1/Tex.zip)
+
+
+[TOC]
+
+
+
+
+## 1.使用方法
+1. 克隆该repo到你的电脑上或[下载最新版本的压缩包](https://github.com/Xchiliarch/Highfleet-Chinese-localization/releases/download/v1.1/Tex.zip)
 
 2. 打开游戏目录，其通常位于你存放该游戏的盘。例如
    F:\SteamLibrary\steamapps\common\HighFleet\Media\Tex
@@ -15,13 +23,9 @@
 
 4. 拷贝本tex文件夹并替换原文件夹
 
-5. 完成！
+5. 完成！ 
 
-## 请确认你使用的语言为英语！否则汉化无法生效
-
-   
-
-## 注意事项
+## 2.注意事项
 1. **请确认你使用的语言为英语！否则汉化无法生效**
 
 2. 本汉化仅限于游戏中的飞船航行仪表及部分界面！部分原文因界面设计整体性并未汉化。
@@ -30,7 +34,7 @@
 
 
 
-## 所用字体
+## 3.所用字体
    > 1. 方正姚体（主要字体，仪表字体）
    > 2. 苏新诗古印宋简（黑板斑驳字体）
    > 3. Oradano-mincho-GSRR（仿电报字体）
@@ -38,7 +42,7 @@
    > 5. 方正像素12（主菜单名言《自然即罗马》）
    > 6. 华文中宋（诏书）
 
-## 截图
+## 4.截图
 
 ![Main menu](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/6.png)
 
@@ -54,4 +58,6 @@
 
 - There may be some of the things that are translated but not shown.
 - 可能存在部分汉化内容未展示于截图中。
+
+
 
