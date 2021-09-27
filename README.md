@@ -4,9 +4,13 @@
 
 
 
-[TOC]
+* [1.使用方法](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/README.md#1.使用方法)
 
+* [2.注意事项](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/README.md#2.注意事项)
 
+* [3.所用字体](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/README.md#3.所用字体)
+
+* [4.截图](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/README.md#4.截图)
 
 
 ## 1.使用方法
