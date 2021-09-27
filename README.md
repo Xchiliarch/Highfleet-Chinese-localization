@@ -7,6 +7,8 @@
 2. 打开游戏目录，其通常位于你存放该游戏的盘。例如
    F:\SteamLibrary\steamapps\common\HighFleet\Media\Tex
 
+   ![File](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/5.png)
+   
    可在steam通过右键点击游戏，在管理中点击浏览本地文件
    
 3. **将Tex文件复制一份作为备份，以防止游戏出现任何异常**
