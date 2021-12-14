@@ -1,6 +1,7 @@
 
 
 # 非官方的Highfleet部分汉化
+# An unofficial Highfleet localization
 
 
 
