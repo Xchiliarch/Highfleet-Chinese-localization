@@ -3,7 +3,7 @@
 # 非官方的Highfleet部分汉化
 # An unofficial Highfleet localization
 
-
+#Highfleet全（并不）汉化已经进入公测，加QQ群752567689了解
 
 * [1.使用方法](#使用方法)
 
