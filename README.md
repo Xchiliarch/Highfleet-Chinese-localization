@@ -1,10 +1,6 @@
 
 
-# 非官方的Highfleet部分汉化
-# An unofficial Highfleet localization
-
-# Highfleet全（并不）汉化已经进入公测，加QQ群752567689了解
-
+# Highfleet汉化补丁
 * [1.使用方法](#使用方法)
 
 * [2.注意事项](#注意事项)
@@ -15,54 +11,45 @@
 
 
 ## 使用方法
-1. 克隆该repo到你的电脑上或[下载最新版本的压缩包](https://github.com/Xchiliarch/Highfleet-Chinese-localization/releases/download/0.2.2/Tex.zip)
+1. [下载最新版本的安装程序](https://github.com/Xchiliarch/Highfleet-Chinese-localization/releases/)
 
-2. 打开游戏目录，其通常位于你存放该游戏的盘。例如
+   v1.0.0对应游戏版本v1.161.
+
+2. 在安装汉化前备份您的存档及自制舰船。
+
+3. 运行安装程序，安装位置选择Highfleet根目录。例如
    F:\SteamLibrary\steamapps\common\HighFleet\Media\Tex
 
-   ![File](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/5.png)
-   
    可在steam通过右键点击游戏，在管理中点击浏览本地文件
-   
-3. **将Tex文件复制一份作为备份，以防止游戏出现任何异常**
 
-4. 拷贝本tex文件夹并替换原文件夹
+   ![file](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/file.png)
 
-5. 完成！ 
+4. 确保您运行游戏的语言选择为英文。
+
+5. 完成！
 
 ## 注意事项
 1. **请确认你使用的语言为英语！否则汉化无法生效**
-
-2. 本汉化仅限于游戏中的飞船航行仪表及部分界面！部分原文因界面设计整体性并未汉化。
-
 3. 如有任何翻译方面的错漏与名词的统一，欢迎提交Issue。
-
-
-
-## 所用字体
-   > 1. 方正姚体（主要字体，仪表字体）
-   > 2. 苏新诗古印宋简（黑板斑驳字体）
-   > 3. Oradano-mincho-GSRR（仿电报字体）
-   > 4. 方正美黑_GBK（部分按钮字体）
-   > 5. 方正像素12（主菜单名言《自然即罗马》）
-   > 6. 华文中宋（诏书）
 
 ## 截图
 
-![Main menu](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/6.png)
+![event](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/event.jpg)
 
-![New game](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/7.png)
+![fight](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/fight.jpg)
 
-![map](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/1.png)
+![main menu](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/main%20menu.jpg)
 
-![radio](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/2.png)
+![Opening](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/Opening.jpg)
 
-![repair](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/3.png)
+![tutorial](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/tutorial.jpg)
 
-![fight](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/4.png)
+![UI](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/UI.jpg)
 
 - There may be some of the things that are translated but not shown.
-- 可能存在部分汉化内容未展示于截图中。
+- 部分汉化内容未展示于截图中。
 
+## 汉化工作流
 
+[工作流](https://github.com/Xchiliarch/Highfleet_chinese_work)项目。
 

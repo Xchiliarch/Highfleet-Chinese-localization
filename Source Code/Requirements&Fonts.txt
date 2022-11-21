@@ -1,0 +1,9 @@
+Python requirements：xpinyin
+Fonts Used in Dialog:
+Source Hans		思源黑体CN
+Huiwen-mincho	汇文明朝
+
+Fonts Used in UI:
+Source Hans		思源黑体CN
+Huiwen-mincho	汇文明朝
+QIJIC			齐伋体
