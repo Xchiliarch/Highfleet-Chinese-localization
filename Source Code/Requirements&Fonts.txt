@@ -7,3 +7,4 @@ Fonts Used in UI:
 Source Hans		思源黑体CN
 Huiwen-mincho	汇文明朝
 QIJIC			齐伋体
+VonwaonBitmap	凤凰点阵体

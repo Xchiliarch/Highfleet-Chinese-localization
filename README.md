@@ -13,12 +13,12 @@
 ## 使用方法
 1. [下载最新版本的安装程序](https://github.com/Xchiliarch/Highfleet-Chinese-localization/releases/)
 
-   v1.0.0对应游戏版本v1.161.
+   请下载对应游戏版本的汉化。
 
 2. 在安装汉化前备份您的存档及自制舰船。
 
 3. 运行安装程序，安装位置选择Highfleet根目录。例如
-   F:\SteamLibrary\steamapps\common\HighFleet\Media\Tex
+   F:\SteamLibrary\steamapps\common\HighFleet
 
    可在steam通过右键点击游戏，在管理中点击浏览本地文件
 
@@ -41,6 +41,8 @@
 ![main menu](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/main%20menu.jpg)
 
 ![Opening](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/Opening.jpg)
+
+![talk](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/talk.jpg)
 
 ![tutorial](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/tutorial.jpg)
 
