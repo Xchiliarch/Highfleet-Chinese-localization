@@ -40,13 +40,13 @@
 
 ![main menu](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/main%20menu.jpg)
 
-![Opening](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/Opening.jpg)
+![Opening](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/Opening.jpg)
 
 ![talk](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/talk.jpg)
 
-![tutorial](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/tutorial.jpg)
+![tutorial](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/tutorial.jpg)
 
-![UI](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/UI.jpg)
+![UI](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/UI.jpg)
 
 - There may be some of the things that are translated but not shown.
 - 部分汉化内容未展示于截图中。
