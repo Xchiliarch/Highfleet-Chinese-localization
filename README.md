@@ -9,6 +9,8 @@
 
 * [4.截图](#截图)
 
+  ![Logo](https://github.com/Xchiliarch/Xchiliarch_Image_Host/blob/master/logo%E9%95%BF.png)
+
 
 ## 使用方法
 1. [下载最新版本的安装程序](https://github.com/Xchiliarch/Highfleet-Chinese-localization/releases/)
