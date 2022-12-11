@@ -297,6 +297,15 @@ def res_compile(tex_name):        #将各字体res组成完整贴图res   # comb
         f" zorder = 0.000000\n"
         f" resgroup = 0\n"
         f" frame = 1\n"
+        "}\n"
+        f"Animation Chinese_logo\n"
+        "{\n"
+        f" texture = {tex_name}\n"
+        f" rect = 100,3840,325,250\n"
+        f" hotspot = 325,250\n"
+        f" zorder = 0.000000\n"
+        f" resgroup = 0\n"
+        f" frame = 1\n"
         "}\n")
     for name in fonts_name:       
         res = res+ locals()[f'{name}_res']
