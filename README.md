@@ -30,9 +30,18 @@
 
 5. 完成！
 
+
+
 ## 注意事项
 1. **请确认你使用的语言为英语！否则汉化无法生效**
 3. 如有任何翻译方面的错漏与名词的统一，欢迎提交Issue。
+
+## Bounus Track！
+1.1.2汉化版本及之后添加了一个延长的瞄准线补丁，效果如下
+
+![long crosshair](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/Long crosshair.jpg)
+
+如要使用，请在备份后下载Bonus Track文件夹内的res文件并替换HighFleet\Media\Tex文件夹内同名文件（建议先备份原文件）
 
 ## 截图
 
