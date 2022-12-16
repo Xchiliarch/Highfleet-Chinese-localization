@@ -39,7 +39,7 @@
 ## Bounus Track！
 1.1.2汉化版本及之后添加了一个延长的瞄准线补丁，效果如下
 
-![long crosshair](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/Long_crosshair.jpg)
+![long crosshair](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/Long_crosshair.jpg)
 
 如要使用，请在备份后下载Bonus Track文件夹内的res文件并替换HighFleet\Media\Tex文件夹内同名文件（建议先备份原文件）
 
@@ -49,7 +49,7 @@
 
 ![fight](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/fight.jpg)
 
-![main menu](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/main%20menu.jpg)
+![main menu](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/main%20menu.jpg)
 
 ![Opening](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/Opening.jpg)
 
