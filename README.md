@@ -53,7 +53,7 @@
 
 ![Opening](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/Opening.jpg)
 
-![talk](https://raw.githubusercontent.com/Xchiliarch/Xchiliarch_Image_Host/master/talk.jpg)
+![talk](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/talk.jpg)
 
 ![tutorial](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/tutorial.jpg)
 
