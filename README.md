@@ -59,6 +59,7 @@
 
 ![UI](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/UI.jpg)
 
+![telegram](https://github.com/Xchiliarch/Highfleet-Chinese-localization/blob/master/Screenshots/telegram.jpg)
 - There may be some of the things that are translated but not shown.
 - 部分汉化内容未展示于截图中。
 
