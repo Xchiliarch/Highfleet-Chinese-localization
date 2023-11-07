@@ -1,5 +1,5 @@
 
-![visitr](https://visitor-badge.glitch.me/badge?page_id=https://github.com/Xchiliarch/Highfleet-Chinese-localization)
+
 
 # Highfleet汉化补丁
 * [1.使用方法](#使用方法)
@@ -68,3 +68,6 @@
 
 [工作流](https://github.com/Xchiliarch/Highfleet_chinese_work)项目。
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Xchiliarch/Highfleet-Chinese-localization&type=Date)](https://star-history.com/#Xchiliarch/Highfleet-Chinese-localization&Date)
