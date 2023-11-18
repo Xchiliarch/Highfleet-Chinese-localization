@@ -1,0 +1,58 @@
+{
+    "credits_Xchiliarch":{
+        "coorX": 0,
+        "coorY": 4000,
+        "rectX": 90,
+        "rectY": 90,
+        "centerX": 45,
+        "centerY": 45
+    },
+    "Chinese_logo":{
+        "coorX": 100,
+        "coorY": 3840,
+        "rectX": 325,
+        "rectY": 250,
+        "centerX": 0,
+        "centerY": 0
+    },
+    "sign_arrow":{
+        "coorX": 683,
+        "coorY": 3037,
+        "rectX": 34,
+        "rectY": 1000,
+        "centerX": 17,
+        "centerY": 956
+    },
+    "sign_arrow_ap":{
+        "coorX": 717,
+        "coorY": 3037,
+        "rectX": 34,
+        "rectY": 1000,
+        "centerX": 17,
+        "centerY": 956
+    },
+    "sign_arrow_ap_low":{
+        "coorX": 751,
+        "coorY": 3037,
+        "rectX": 34,
+        "rectY": 1000,
+        "centerX": 17,
+        "centerY": 956
+    },
+    "sign_arrow_lg":{
+        "coorX": 542,
+        "coorY": 3950,
+        "rectX": 12,
+        "rectY": 87,
+        "centerX": 6,
+        "centerY": 43
+    },
+    "sign_arrow_lg_low":{
+        "coorX": 572,
+        "coorY": 3950,
+        "rectX": 12,
+        "rectY": 87,
+        "centerX": 6,
+        "centerY": 43
+    }
+}

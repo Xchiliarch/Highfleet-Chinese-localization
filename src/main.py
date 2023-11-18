@@ -1,6 +1,6 @@
 '''
-HF Chinese Localization V2.0.0
-2023.11.17
+HF Chinese Localization V2.1.0
+2023.11.19
 
 Credits:
 Huge thanks to stopnoanime for decrypting the dialog file of Highfleet , localization would never be possible without your work.
@@ -12,12 +12,14 @@ import re
 from PIL import Image, ImageDraw, ImageFont
 from json import load
 import os
+from math import ceil
 #from fontTools import TTfont
 default_font = 'SH20_SAND'               #确定默认字体   
 row_num = 51                        #贴图一行字符数 
 tex_name = 'Static11'               #材质贴图名称   
-font_file ='fonts.json'              #字体名字       
-translation_file = 'chinese.txt'    #汉化文件       
+font_file ='./fonts/fonts.json'              #字体名字       
+translation_file = 'chinese_e.txt'    #汉化文件       
+pic_file = "./pics/pics.json"
 
 if os.path.exists('.\\build') == False:
     os.makedirs('.\\build')
@@ -69,6 +71,13 @@ def fontRenderer(fontsConfig,fontName,draw,text):
             x = x+FX[2]//2
             y = y+FX[2]//4
             drawchar(draw,text,FX[1],(x-FX[2]/2,y+FX[2]/2),font,font_path,(rectX,rectY),bleeding)
+            drawchar(draw,text,color,(x,y),font,font_path,(rectX,rectY),bleeding)
+        if FX[0] == 'pixel': #像素字体加粗  
+            x += ceil(fontSize/10)
+            y += ceil(fontSize/20)
+            font = ImageFont.truetype(font_path, fontSize+1)
+            drawchar(draw,text,color,(x-1,y-1),font,font_path,(rectX,rectY),bleeding)            
+            font = ImageFont.truetype(font_path, fontSize)
             drawchar(draw,text,color,(x,y),font,font_path,(rectX,rectY),bleeding)
     else:
         font = ImageFont.truetype(font_path, fontSize)
@@ -122,6 +131,9 @@ if __name__ == '__main__':
     fontsConfig = load(f)   #读取字体参数
     f.close()
 
+    f= open(pic_file, 'r')    
+    picsConfig = load(f)   #读取额外贴图参数
+    f.close()
     #1.生成#{fontName}Chars - 各字体使用字符如 SH65_SANDChars ==['料','燃']
     for item in fontsConfig:
         if item != default_font:
@@ -152,12 +164,21 @@ if __name__ == '__main__':
         text = globals()[f'{fontName}Chars']
         
         fontRenderer(fontsConfig,fontName,draw,text)
+    for pic in picsConfig:
+        coorX = picsConfig[pic].get("coorX")
+        coorY = picsConfig[pic].get("coorY")
+        image.paste(Image.open(f"./pics/{pic}.png"),(coorX,coorY))
     image.save(f".\\build\\{tex_name}.png")
     print('生成字库图完成')
 
     #3.生成字库对应res
+    res =(f'Texture {tex_name}\n'
+        '{\n'
+        f'filename = Media/Tex/{tex_name}.png\n'
+        f'resgroup = 0\n'
+        '}\n')
     for fontName in fontsConfig:                                       #生成 {item}Res SH20_SANDRes
-        res = ''
+        FontRes = ''
         globals()[f'{fontName}Res'] = ''
         coorX = fontsConfig[fontName].get('coorX')                     #起始坐标X
         coorY = fontsConfig[fontName].get('coorY')                     #起始坐标Y
@@ -167,10 +188,10 @@ if __name__ == '__main__':
         tempCoorX = coorX
         tempCoorY = coorY
         for char in globals()[f'{fontName}Chars']:
-            res = res + (                                #the res of each char
+            FontRes = FontRes + (                                #the res of each char
                 f"\nAnimation {fontName}_{ord(char)}\n"
-                "{\n"
-                f" texture = {tex_name}\n"
+                "{"
+                f"\n texture = {tex_name}\n"
                 f" rect = {tempCoorX},{tempCoorY},{rectX},{rectY}\n"
                 f" hotspot = {rectX//2},{rectY//2}\n"
                 f" zorder = 0.000000\n"
@@ -181,30 +202,29 @@ if __name__ == '__main__':
             tempCoorX = coorX if ((i+1)%row_num==0) else tempCoorX + rectX
             tempCoorY = tempCoorY+ rectY  if ((i+1)%row_num==0) else tempCoorY
             i+=1
-        globals()[f'{fontName}Res'] = res
-    res =(f'Texture {tex_name}\n'
-        '{\n'
-        f'filename = Media/Tex/{tex_name}.png\n'
-        f'resgroup = 0\n'
-        '}\n'
-        f"Animation credits_Xchiliarch\n"
-        "{\n"
-        f" texture = {tex_name}\n"
-        f" rect = 0,4000,90,90\n"
-        f" hotspot = 45,45\n"
-        f" zorder = 0.000000\n"
-        f" resgroup = 0\n"
-        f" frame = 1\n"
-        "}\n"
-        f"Animation Chinese_logo\n"
-        "{\n"
-        f" texture = {tex_name}\n"
-        f" rect = 100,3840,325,250\n"
-        f" hotspot = 325,250\n"
-        f" zorder = 0.000000\n"
-        f" resgroup = 0\n"
-        f" frame = 1\n"
-        "}\n")
+        globals()[f'{fontName}Res'] = FontRes
+    
+    for pic in picsConfig:
+        PicRes = ''
+        coorX = picsConfig[pic].get('coorX')                    #起始坐标Y
+        coorY = picsConfig[pic].get('coorY')                    #起始坐标Y
+        rectX = picsConfig[pic].get('rectX')                    #图片宽度
+        rectY = picsConfig[pic].get('rectY')                    #图片高度
+        centerX = picsConfig[pic].get('centerX')                #X中心
+        centerY = picsConfig[pic].get('centerY')                #Y中心
+        PicRes += (f"\nAnimation {pic}\n"
+            "{"
+            f"\n texture = {tex_name}\n"
+            f" rect = {coorX},{coorY},{rectX},{rectY}\n"
+            f" hotspot = {centerX},{centerY}\n"
+            f" zorder = 0.000000\n"
+            f" resgroup = 0\n"
+            f" frame = 1\n"
+            "}\n")
+        globals()[f'{pic}Res'] = PicRes
+
+    for pic in picsConfig:
+        res += globals()[f'{pic}Res']
     for fontName in fontsConfig:
         res += globals()[f'{fontName}Res']
 
@@ -223,7 +243,7 @@ if __name__ == '__main__':
 
     splitText = re.sub('.*?',replaceWithDefault,splitText)      #将剩余未标记汉字以default_font替换
 
-    #4.生成enc文件
+    #5.生成enc文件
     chars = b''
     chars += splitText.encode("utf-8")
     b = 2531011

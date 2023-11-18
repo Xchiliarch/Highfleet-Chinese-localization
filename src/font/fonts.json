@@ -102,22 +102,24 @@
     "PH20_SAND":{
         "coorX": 0,
         "coorY": 1700,
-        "rectX": 20,
-        "rectY": 20,
-        "fontSize": 18,
+        "rectX": 21,
+        "rectY": 21,
+        "fontSize": 19,
         "color" :"#f5e6aa",
-        "font": "fusionPixel",
-        "bleeding":0
+        "font": "vonwaonBitmap",
+        "bleeding":0,
+        "postFX": ["pixel"]
     },
     "PH20_RED":{
         "coorX": 0,
         "coorY": 2300,
-        "rectX": 20,
-        "rectY": 20,
-        "fontSize": 20,
+        "rectX": 21,
+        "rectY": 21,
+        "fontSize": 19,
         "color" :"#ff0000",
-        "font": "fusionPixel",
-        "bleeding":0
+        "font": "vonwaonBitmap",
+        "bleeding":0,
+        "postFX": ["pixel"]
     },
     "SH40_WHITE":{
         "coorX": 1020,
