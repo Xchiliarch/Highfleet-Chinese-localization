@@ -10,7 +10,7 @@ pics--额外贴图存放位置
 
 fonts--所需字体存储位置,请自行向其中添加所需字体。如需要构建原版汉化，请放入如下字体：
 
-vonwaonBitmap.ttf ---[凤凰点阵体](https://timothyqiu.itch.io/vonwaon-bitmap)
+vonwaonBitmap.ttf ---[凤凰点阵体16px](https://timothyqiu.itch.io/vonwaon-bitmap)
 
 huiWenMinCho.ttf---[匯文明朝體](https://zhuanlan.zhihu.com/p/344103391)
 
