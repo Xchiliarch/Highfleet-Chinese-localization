@@ -12,6 +12,8 @@
 
 * [5.截图](#截图)
 
+* [6.其他](#其他)
+
   ![Logo](./Screenshots/logo_long.png)
 
 
@@ -66,7 +68,8 @@
 - There may be some of the things that are translated but not shown.
 - 部分汉化内容未展示于截图中。
 
-
+## 其他
+Highfleet交流群：752567689，如有汉化问题或汉化文本获取需要请进群@Xchiliarch
 
 ## Star History
 

@@ -1,6 +1,6 @@
 '''
-HF Chinese Localization V2.1.0
-2023.11.19
+HF Chinese Localization
+2023.11.20
 
 Credits:
 Huge thanks to stopnoanime for decrypting the dialog file of Highfleet , localization would never be possible without your work.
@@ -8,13 +8,17 @@ Huge thanks to stopnoanime for decrypting the dialog file of Highfleet , localiz
 感谢所有参与提交汉化问题的群友。
 
 '''
+version = "2.2.0"
+
 import re
 from PIL import Image, ImageDraw, ImageFont
 from json import load
 import os
 from math import ceil
-#from fontTools import TTfont
-default_font = 'SH20_SAND'               #确定默认字体   
+from fontTools.ttLib.ttFont import TTFont
+import argparse
+
+default_font = 'SH20_SAND'               #确定默认字体
 row_num = 51                        #贴图一行字符数 
 tex_name = 'Static11'               #材质贴图名称   
 font_file ='./fonts/fonts.json'              #字体名字       
@@ -24,76 +28,101 @@ pic_file = "./pics/pics.json"
 if os.path.exists('.\\build') == False:
     os.makedirs('.\\build')
 
-def drawchar(draw,text,color,xy,font,font_path,fontSize,bleeding):
+parser = argparse.ArgumentParser(description=f'highfleet汉化项目 版本{version}')
+group1 = parser.add_mutually_exclusive_group()
+group1.add_argument('-d','--debug',action="store_true", default=False,help="开启此参数后，\
+                    贴图中中将以红色方块标识(若字体可绘制该方块)无法绘制的字符，供检查及补绘")
+group1.add_argument('-f','--fallback',action="store_true", default=False,help="开启此参数后，\
+                    贴图中将以红色默认字体(若字体可绘制该字符)绘制无法绘制的字符，供检查及补绘 ")
+group1.add_argument('-ff','--forceFallback',action="store_true", default=False,help="开启此参数后，\
+                    贴图中将以默认字体及目标颜色(若字体可绘制该字符)绘制无法绘制的字符 ⚠️该选项Fallback\
+                    的字体可能并不会匹配于原网格上，请尽量手动绘制")
+args = parser.parse_args()
+debug = args.debug
+fallback = args.fallback
+forceFallback = args.forceFallback
+
+
+#检测字符是否包含于字体中
+def checkChar(ch,fontT):
+    found = False
+    table = fontT['cmap'].tables[0].ttFont.getBestCmap()
+    if ord(ch) in table:
+        found = True
+    return found
+
+#给出text等参数，绘制字符
+def drawchar(draw,text,color,xy,font,default_font,fontT,fontSize,bleeding):
     rectX,rectY = fontSize
     x,y =xy
     tempx = x
-    tempy = y - bleeding/(1000//rectY)
-    rectX,rectY = fontSize
+    tempy = y - ceil(bleeding/(1000//rectY))
+    canNotDraw = ''
     for i in range(len(text)):
-
-        '''检查字符方法效率过低已被弃用
-        # if checkChar(text[i],font_path):
-        #     draw.text((tempx,tempy), text[i], font=font, fill=color)  
-        # else:
-        #     draw.text((tempx,tempy), "?", font=font, fill=color)      
-        '''
-
-        draw.text((tempx,tempy), text[i], font=font, fill=color)    
-        tempx = x if ((i+1)%row_num==0) else tempx + rectX
+        if checkChar(text[i],fontT):
+            draw.text((tempx,tempy), text[i], font=font, fill=color)  
+        else:
+            canNotDraw += ' '+text[i]
+            if(debug):
+                draw.text((tempx,tempy), '■', font=font, fill="#ff0000") 
+            elif(fallback):
+                temppy = tempy - ceil((default_font[1].get("bleeding")-bleeding)/(1000//rectY))
+                draw.text((tempx,temppy), text[i], font=default_font[0], fill="#ff0000") 
+            elif(forceFallback):
+                temppy = tempy - ceil((default_font[1].get("bleeding")-bleeding)/(1000//rectY))
+                draw.text((tempx,temppy), text[i], font=default_font[0], fill=color) 
+            else:
+                draw.text((tempx,tempy), '', font=font, fill=color) 
+        #若检测到该字体无法绘制则添加该字符至canNotDraw
+        tempx = x if ((i+1)%row_num==0) else tempx + rectX #
         tempy = tempy + rectY  if ((i+1)%row_num==0) else tempy
+    return canNotDraw
 
+#检测字体获取对应信息绘制
 def fontRenderer(fontsConfig,fontName,draw,text):
     config = fontsConfig[fontName]
     color =config["color"]
     font_path = f"./fonts/{config['font']}.ttf"  
     bleeding = config["bleeding"]
-    
     fontSize = config["fontSize"]
     x =config["coorX"]
     y = config["coorY"]
     rectX = config["rectX"]
     rectY = config["rectY"]
-
+    fontT = TTFont(font_path)
     if config.get("postFX") !=None:
         FX = config.get("postFX")   #[type,color,width(stroke)/dis(shadow)]
         if FX[0] == 'stroke':       #描边
             font = ImageFont.truetype(font_path, fontSize-FX[2]-2)
+            defaultFont = [ImageFont.truetype(f"./fonts/{fontsConfig[default_font]['font']}.ttf", fontSize-FX[2]-2),fontsConfig[default_font]]
             x = x+FX[2]
             y = y+2*FX[2]
-            drawchar(draw,text,FX[1],(x-FX[2],y),font,font_path,(rectX,rectY),bleeding)
-            drawchar(draw,text,FX[1],(x+FX[2],y),font,font_path,(rectX,rectY),bleeding)
-            drawchar(draw,text,FX[1],(x,y-FX[2]),font,font_path,(rectX,rectY),bleeding)
-            drawchar(draw,text,FX[1],(x,y+FX[2]),font,font_path,(rectX,rectY),bleeding)
-            drawchar(draw,text,color,(x,y),font,font_path,(rectX,rectY),bleeding)
+            drawchar(draw,text,FX[1],(x-FX[2],y),font,defaultFont,fontT,(rectX,rectY),bleeding)
+            drawchar(draw,text,FX[1],(x+FX[2],y),font,defaultFont,fontT,(rectX,rectY),bleeding)
+            drawchar(draw,text,FX[1],(x,y-FX[2]),font,defaultFont,fontT,(rectX,rectY),bleeding)
+            drawchar(draw,text,FX[1],(x,y+FX[2]),font,defaultFont,fontT,(rectX,rectY),bleeding)
+            return drawchar(draw,text,color,(x,y),font,defaultFont,fontT,(rectX,rectY),bleeding)
         if FX[0] == 'shadow': #投影
+            defaultFont = [ImageFont.truetype(f"./fonts/{fontsConfig[default_font]['font']}.ttf", fontSize-FX[2]//2),fontsConfig[default_font]]
             font = ImageFont.truetype(font_path, fontSize-FX[2]//2)
             x = x+FX[2]//2
             y = y+FX[2]//4
-            drawchar(draw,text,FX[1],(x-FX[2]/2,y+FX[2]/2),font,font_path,(rectX,rectY),bleeding)
-            drawchar(draw,text,color,(x,y),font,font_path,(rectX,rectY),bleeding)
+            drawchar(draw,text,FX[1],(x-FX[2]/2,y+FX[2]/2),font,defaultFont,fontT,(rectX,rectY),bleeding)
+            return drawchar(draw,text,color,(x,y),font,defaultFont,fontT,(rectX,rectY),bleeding)
         if FX[0] == 'pixel': #像素字体加粗  
             x += ceil(fontSize/10)
             y += ceil(fontSize/20)
             font = ImageFont.truetype(font_path, fontSize+1)
-            drawchar(draw,text,color,(x-1,y-1),font,font_path,(rectX,rectY),bleeding)            
+            defaultFont = [ImageFont.truetype(f"./fonts/{fontsConfig[default_font]['font']}.ttf", fontSize+1),fontsConfig[default_font]]
+            drawchar(draw,text,color,(x-1,y-1),font,defaultFont,fontT,(rectX,rectY),bleeding)            
             font = ImageFont.truetype(font_path, fontSize)
-            drawchar(draw,text,color,(x,y),font,font_path,(rectX,rectY),bleeding)
+            defaultFont = [ImageFont.truetype(f"./fonts/{fontsConfig[default_font]['font']}.ttf", fontSize),fontsConfig[default_font]]
+            return drawchar(draw,text,color,(x,y),font,defaultFont,fontT,(rectX,rectY),bleeding)
     else:
         font = ImageFont.truetype(font_path, fontSize)
-        drawchar(draw,text,color,(x,y),font,font_path,(rectX,rectY),bleeding)
+        defaultFont = [ImageFont.truetype(f"./fonts/{fontsConfig[default_font]['font']}.ttf", fontSize),fontsConfig[default_font]]
+        return drawchar(draw,text,color,(x,y),font,defaultFont,fontT,(rectX,rectY),bleeding)
 
-#该函数效率过低已被弃用，请在生成字库图后自行检查是否存在未正常显示字符
-#def checkChar(ch,font_path):
-'''
-    font = TTFont(font_path)
-    found = False
-    for table in font['cmap'].tables:
-        if ord(ch) in table.cmap.keys():
-            found = True
-            break
-    return found
-'''
 def replaceWithRes(text):
     res =''
     pattern = '\$(.*?)\*(.*?)\*'
@@ -134,6 +163,7 @@ if __name__ == '__main__':
     f= open(pic_file, 'r')    
     picsConfig = load(f)   #读取额外贴图参数
     f.close()
+    
     #1.生成#{fontName}Chars - 各字体使用字符如 SH65_SANDChars ==['料','燃']
     for item in fontsConfig:
         if item != default_font:
@@ -150,26 +180,30 @@ if __name__ == '__main__':
                 if (ord(char)>3000 or ord(char)==183)and (char not in globals()[f'{item}Chars']):
                     globals()[f'{item}Chars'].append(char)              #检测·及汉字区域字符
         globals()[f'{item}Chars'] = sorted(globals()[f'{item}Chars'])   #{item}Chars SH20_SANDChars
-    print('获取字符信息完成')
+    print('获取字符信息完成\n')
     
     #2.生成字库图片
     width   = 4096
     height  = 4096
-
     image = Image.new("RGBA", (width, height), color=(255,0,0,0))  #RGBA
     draw = ImageDraw.Draw(image)
     draw.fontmode = 'L' #抗锯齿
 
     for fontName in fontsConfig:  
         text = globals()[f'{fontName}Chars']
-        
-        fontRenderer(fontsConfig,fontName,draw,text)
+        canNotDraw = fontRenderer(fontsConfig,fontName,draw,text)
+        if canNotDraw !='':
+            print(f"{fontName} \'{canNotDraw}\'绘制失败")
+    #绘制字体
+
     for pic in picsConfig:
         coorX = picsConfig[pic].get("coorX")
         coorY = picsConfig[pic].get("coorY")
         image.paste(Image.open(f"./pics/{pic}.png"),(coorX,coorY))
+    #绘制图片
+
     image.save(f".\\build\\{tex_name}.png")
-    print('生成字库图完成')
+    print('生成字库图完成\n')
 
     #3.生成字库对应res
     res =(f'Texture {tex_name}\n'
@@ -177,7 +211,7 @@ if __name__ == '__main__':
         f'filename = Media/Tex/{tex_name}.png\n'
         f'resgroup = 0\n'
         '}\n')
-    for fontName in fontsConfig:                                       #生成 {item}Res SH20_SANDRes
+    for fontName in fontsConfig:                                       
         FontRes = ''
         globals()[f'{fontName}Res'] = ''
         coorX = fontsConfig[fontName].get('coorX')                     #起始坐标X
@@ -203,6 +237,7 @@ if __name__ == '__main__':
             tempCoorY = tempCoorY+ rectY  if ((i+1)%row_num==0) else tempCoorY
             i+=1
         globals()[f'{fontName}Res'] = FontRes
+    #生成 字体res
     
     for pic in picsConfig:
         PicRes = ''
@@ -222,12 +257,13 @@ if __name__ == '__main__':
             f" frame = 1\n"
             "}\n")
         globals()[f'{pic}Res'] = PicRes
+    #生成 图片res
 
     for pic in picsConfig:
         res += globals()[f'{pic}Res']
     for fontName in fontsConfig:
         res += globals()[f'{fontName}Res']
-
+    #合并
     f= open(f'.\\build\\{tex_name}.res','w',encoding='utf-8')         
     f.write(res)
     f.close()
@@ -239,9 +275,11 @@ if __name__ == '__main__':
         if fontName == default_font:
             continue
         pattern = f'(\${fontName}\*.*?\*)' 
-        splitText = re.sub(pattern,replaceWithRes,splitText)    #对标记字体的汉字替换为res注册信息
+        splitText = re.sub(pattern,replaceWithRes,splitText)    
+    #对标记字体的汉字替换为res注册信息
 
-    splitText = re.sub('.*?',replaceWithDefault,splitText)      #将剩余未标记汉字以default_font替换
+    splitText = re.sub('.*?',replaceWithDefault,splitText)      
+    #将剩余未标记汉字以default_font替换
 
     #5.生成enc文件
     chars = b''
