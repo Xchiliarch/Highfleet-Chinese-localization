@@ -23,10 +23,10 @@ python main.py
 可执行带命令的运行。
 
 ```
--d 或 --debug
+python main.py --debug
 ```
 
-其中所有的无法被绘制的字符都将以红色方块标识（若字体支持），以便于查看字符位置及修改。字符位置按从上至下从左至右排序输出。
+以--debug 或 -d 执行，其中所有的无法被绘制的字符都将以红色方块标识（若字体支持），以便于查看字符位置及修改。字符位置按从上至下从左至右排序输出。
 
 
 
@@ -35,22 +35,24 @@ python main.py
 
 
 ```
--f 或 --fallback
+python main.py --fallback
 ```
 
-所有的无法被绘制的字符都将以红色默认字体（若字体支持），以便于查看字符位置及修改。字符位置按从上至下从左至右排序输出。
+以--fallback 或 -f 执行，所有的无法被绘制的字符都将以红色默认字体（若字体支持），以便于查看字符位置及修改。字符位置按从上至下从左至右排序输出。
+
+⚠️**该选项Fallback 的字体可能并不会匹配于原网格上，请尽量手动绘制。**
 
 ![fallback](../Screenshots/fallback.png)
 
 ```
--ff 或 --forceFallback
+python main.py --forceFallback
 ```
 
-所有的无法被绘制的字符都将以默认字体（若字体支持）绘制，字符位置按从上至下从左至右排序输出。
+以--forceFallback 或 -ff 执行，所有的无法被绘制的字符都将以默认字体（若字体支持）绘制，字符位置按从上至下从左至右排序输出。
 
 ⚠️**该选项Fallback 的字体可能并不会匹配于原网格上，请尽量手动绘制。**
 
-![fallback](../Screenshots/forceFallback.png)
+![forceFallback](../Screenshots/forceFallback.png)
 
 上述三种参数互斥，只能选择其一运行。
 
@@ -58,17 +60,26 @@ python main.py
 
 ## 各文件含义
 
-./fonts/fonts.json---汉化字体参数
-
-./pics.pics.json---额外贴图参数
-
-main.py--汉化脚本
-
-chinese.txt---汉化文本，由于本人并非文本翻译全权所有者，故不提供文本。如有需要请进群了解
-
-pics--额外贴图存放位置
-
-fonts--所需字体存储位置,请自行向其中添加所需字体。如需要构建原版汉化，请放入如下字体：
+```
+src
+├───chinese.txt  					汉化文本，由于本人并非文本翻译全权所有者，故不提供文本。如有需要请进群了解
+├───main.py      					汉化脚本
+├───README.md
+│
+├───pics							图片文件夹，额外贴图存放位置
+│    └──┬───pics.json				额外贴图参数
+│      	├───Chinese_logo.png		下为额外贴图
+│       ├───credits_Xchiliarch.png	
+│       ├───sign_arrow.png			
+│       ├───sign_arrow_ap.png
+│       ├───sign_arrow_ap_low.png
+│       ├───sign_arrow_lg.png
+│       └───sign_arrow_lg_low.png 	 					
+├───build 							生成文件
+|
+└───fonts 							字体文件夹，所需字体存储位置,请自行向其中添加所需字体。如需要构建原版汉化，请放入下述字体
+     └──────fonts.json  			字体参数
+```
 
 vonwaonBitmap.ttf ---[凤凰点阵体16px](https://timothyqiu.itch.io/vonwaon-bitmap)
 
