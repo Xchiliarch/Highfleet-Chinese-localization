@@ -6,13 +6,11 @@
 
 * [2.注意事项](#注意事项)
 
-* [3.所用字体](#所用字体)
+* [3.Bonus Track](#Bonus-Track) 
 
-* [4.Bonus Track](#Bonus-Track) 
+* [4.截图](#截图)
 
-* [5.截图](#截图)
-
-* [6.其他](#其他)
+* [5.其他](#其他)
 
   ![Logo](./Screenshots/logo_long.png)
 
@@ -69,8 +67,14 @@
 - 部分汉化内容未展示于截图中。
 
 ## 其他
-Highfleet交流群：682246378，如有汉化问题或汉化文本获取需要请进群@Xchiliarch
+如有汉化问题或汉化文本获取需要请提出issue
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Xchiliarch/Highfleet-Chinese-localization&type=Date)](https://star-history.com/#Xchiliarch/Highfleet-Chinese-localization&Date)
+<a href="https://www.star-history.com/?repos=Xchiliarch%2FHighfleet-Chinese-localization&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Xchiliarch/Highfleet-Chinese-localization&type=date&theme=dark&legend=top-left&sealed_token=A4r_XkkZ7VbmekDG5773m3GoJw0pamUfB_8Hy5EuA3yhTBia9MgpUvoflq8ZpzjMMQZcR8f7Z3ZkJJMPUrMNsPJBv8FfNN92jdDO76xH3utSKfGmMk_mMsxeNTMmg-Fx9Hq-XcOIOZLMVlkUPReFyakOq3ZoUt4LJCtlHb-5k1WmaO1uB5hYliCv67ij" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Xchiliarch/Highfleet-Chinese-localization&type=date&legend=top-left&sealed_token=A4r_XkkZ7VbmekDG5773m3GoJw0pamUfB_8Hy5EuA3yhTBia9MgpUvoflq8ZpzjMMQZcR8f7Z3ZkJJMPUrMNsPJBv8FfNN92jdDO76xH3utSKfGmMk_mMsxeNTMmg-Fx9Hq-XcOIOZLMVlkUPReFyakOq3ZoUt4LJCtlHb-5k1WmaO1uB5hYliCv67ij" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Xchiliarch/Highfleet-Chinese-localization&type=date&legend=top-left&sealed_token=A4r_XkkZ7VbmekDG5773m3GoJw0pamUfB_8Hy5EuA3yhTBia9MgpUvoflq8ZpzjMMQZcR8f7Z3ZkJJMPUrMNsPJBv8FfNN92jdDO76xH3utSKfGmMk_mMsxeNTMmg-Fx9Hq-XcOIOZLMVlkUPReFyakOq3ZoUt4LJCtlHb-5k1WmaO1uB5hYliCv67ij" />
+ </picture>
+</a>
